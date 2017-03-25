@@ -1,0 +1,17 @@
+<div class="panel panel-primary">
+<div data-ng-if="gcConfig.calendar_name" class="panel-heading">
+  {{ gcConfig.calendar_name }}
+  <span class="pull-right">
+    <a data-ng-href="{{ calendar.ical }}" style="color: white;">ical |</a>
+    <a data-ng-href="{{ calendar.html }}" style="color: white;">html</a>
+  </span>
+</div>
+<div class="panel-body" data-ng-repeat="event in calendar.items">
+  <div class="event-title">{{ ::event.summary }}</div>
+  <div class="datetime">
+    {{ event.startTime }}
+  </div>
+  <div class="description" data-ng-if="gcConfig.htmlDesc" data-ng-bind-html="event.description"></div>
+  <div class="description" data-ng-if="!gcConfig.htmlDesc">{{ event.description }}</div>
+</div>
+</div>
